@@ -29,7 +29,7 @@ padding: 10px;
 }
 
 .loginBtn{
-    margin: 20px;
+    margin: 70px;
 }
 
 a{
@@ -44,4 +44,10 @@ a{
   .homePage{
       background-color: rgba(229, 226, 226, 0.705);
 
+  }
+  .homePage-unauthenticated{
+      display: flex;
+      justify-content: center;
+      justify-self: center;
+      padding: 100px;
   }

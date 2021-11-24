@@ -7,11 +7,18 @@ firebase.initializeApp(firebaseConfig);
 const { validateSignupData, validateLoginData } = require("./util/validator");
 const { FBAuth } = require("./util/FBAuth");
 const { UserRecordMetadata } = require("firebase-functions/v1/auth");
+const cors = require('cors');
 // Create and Deploy Your First Cloud Functions
 //firebase.google.com/docs/functions/write-firebase-functions
 https: app.get("/helloWorld", (request, response) => {
   response.send("Hello from Firebase!");
 });
+
+app.use(cors({
+  origin: ["*"],
+  methods: ["POST, GET"],
+  credentials: true
+}));
 
 app.post("/signup", (req, res) => {
   const newUser = {

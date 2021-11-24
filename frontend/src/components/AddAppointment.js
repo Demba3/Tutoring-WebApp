@@ -33,7 +33,7 @@ export const AddAppointment = () => {
           const token = localStorage.FBIdToken;
           setLoading(true)
           axios.defaults.headers.common["Authorization"] = token;
-          const data =  ( await axios.post("/appointments", appointmentDetails )).data
+          const data =  ( await axios.post("https://us-central1-tutoring-app-3c59d.cloudfunctions.net/api/appointment", appointmentDetails )).data
           setAppointmentDetails(data);
           console.log("new appointment created", data);
       }

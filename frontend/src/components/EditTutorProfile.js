@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import MyButton from '../util/MyButton';
+import axios from 'axios';
 //MUI stuff
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -17,16 +18,33 @@ export const EditTutorProfile = () => {
     const [open, setOpen] = useState(false);
     const [name, SetName] = useState("");
     const [Subjects, setSubjects] = useState("");
-    const [Major, setMajor] = useState("");
+    const [major, setMajor] = useState("");
     const [classStanding, setClassStanding] = useState("");
     const [user, setUser] = useState({});
 
-    const handleSubmit = () => {
+    const UdateProfile = async() => {
+      try {
         setUser({
-          Major,
+          major,
           bio,
           classStanding
         })
+          const token = localStorage.FBIdToken;
+          
+          axios.defaults.headers.common["Authorization"] = token;
+          const data =  ( await axios.post("/user", user )).data
+          setUser(user)
+          console.log("profile updated", data);
+      }
+       catch (error) {
+        
+          console.log("error updating profile", error)
+          // console.log("done loading")
+      }
+  }
+    
+    const handleSubmit = () => {
+        UdateProfile();
         console.log(user);
         setOpen(false);
     }
@@ -75,7 +93,7 @@ export const EditTutorProfile = () => {
             label="major"
             placeholder="Major"
             className= "textfield"
-            value={Major}
+            value={major}
             onChange={(e) => {
                 setMajor(e.target.value);
               }}

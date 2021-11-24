@@ -59,9 +59,6 @@ console.log("image", imageUrl)
             <hr/>
             <hr/>
             <div className= "profile-details">
-            <Typography variant="body2">
-                <hr /> {bio && <Typography variant="body2">{bio}</Typography>} <hr />
-            </Typography>
             <Typography variant="body2"><hr /> {handle && <Typography variant="body2">{handle}</Typography>} <hr /> </Typography>
             <Typography variant="body2"><hr /> {major && <Typography variant="body2">{major}</Typography>} <hr /> </Typography>
             <Typography variant="body2"><hr /> {classStanding && <Typography variant="body2">{classStanding}</Typography>} <hr /> </Typography>
