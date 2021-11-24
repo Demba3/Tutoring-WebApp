@@ -5,7 +5,7 @@
 
 
 ## installation process--
-Clone this repo--
+Clone this repo  
 Navigate to the frontend folder--
 Type npm install in the terminal --
 Onces this is done type npm start--
